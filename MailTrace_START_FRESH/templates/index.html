@@ -1,0 +1,11 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MailTrace — Upload</title>
+<link rel="stylesheet" href="/static/style.css"></head>
+<body>
+  <h1>MailTrace — Upload CSVs</h1>
+  <form method="POST" enctype="multipart/form-data">
+    <label>Mail CSV: <input type="file" name="mail_csv" accept=".csv" required></label><br><br>
+    <label>CRM CSV: <input type="file" name="crm_csv" accept=".csv" required></label><br><br>
+    <button type="submit">Run Match</button>
+  </form>
+</body></html>
