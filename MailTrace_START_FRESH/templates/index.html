@@ -1,11 +1,48 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>MailTrace — Upload</title>
-<link rel="stylesheet" href="/static/style.css"></head>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>MailTrace</title>
+  <link rel="icon" href="/static/favicon.ico">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
 <body>
-  <h1>MailTrace — Upload CSVs</h1>
-  <form method="POST" enctype="multipart/form-data">
-    <label>Mail CSV: <input type="file" name="mail_csv" accept=".csv" required></label><br><br>
-    <label>CRM CSV: <input type="file" name="crm_csv" accept=".csv" required></label><br><br>
-    <button type="submit">Run Match</button>
-  </form>
-</body></html>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="/"><img class="logo" src="/static/logo.png" alt="MailTrace logo" /></a>
+      <h1 class="brand-title">MailTrace</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for m in messages %}<div>{{ m }}</div>{% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="card">
+      <h3>Upload CSVs</h3>
+      <p class="note">Upload your <b>Mail History</b> CSV and your <b>CRM</b> CSV.</p>
+      <form action="/run" method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div>
+            <label>Mail CSV</label>
+            <input type="file" name="mail_csv" accept=".csv" required>
+          </div>
+          <div>
+            <label>CRM CSV</label>
+            <input type="file" name="crm_csv" accept=".csv" required>
+          </div>
+        </div>
+        <div style="margin-top:16px">
+          <button class="button">Continue</button>
+          <a class="button secondary" href="/healthz">Health Check</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
