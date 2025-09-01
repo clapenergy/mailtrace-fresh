@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MailTrace — Access</title>
+    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32.png') }}">
+  <link rel="icon" type="image/png" sizes="64x64" href="{{ url_for('static', filename='favicon-64.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon-180.png') }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='favicon-192.png') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+  </head>
+  <body>
+    
+  <div class="topbar">
+    <div class="container">
+      <header class="nav">
+        <a href="{{ url_for('index') }}" class="logo-link" aria-label="MailTrace Home">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="MailTrace logo" class="logo" />
+        </a>
+        <h1 class="brand-title">MailTrace</h1>
+      </header>
+    </div>
+  </div>
+
+    <div class="container">
+      
+  <h2>MailTrace Access</h2>
+  <form method="POST" class="card">
+    <label>Enter Password</label>
+    <input type="password" name="password" placeholder="Password" required />
+    <div style="margin-top:12px;">
+      <button class="button" type="submit">Enter</button>
+    </div>
+    <p class="note" style="margin-top:12px;">Set <code>MAILTRACE_PASSWORD</code> in your Render environment to enable this gate.</p>
+  </form>
+
+    </div>
+  </body>
+</html>
